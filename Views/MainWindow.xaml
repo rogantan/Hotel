@@ -1,0 +1,72 @@
+﻿<Window x:Class="Hotel.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel.Views"
+        xmlns:vm="clr-namespace:Hotel.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+         AllowsTransparency="True" Background="Transparent">
+    <Border Background="White" CornerRadius="30" MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--MenuIcon-->
+                <Button  Margin="20, 28, 0, 35" Style="{StaticResource topButton}">
+                    <!--<Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />-->
+                </Button>
+
+                <Border Grid.Row="1" Background="#59078f" CornerRadius="0, 50, 0, 30">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="60" Color="#d1d1d1" ShadowDepth="0" />
+                    </Border.Effect>
+                    <DockPanel>
+                        <!--MenuLogo-->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                    DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20, -30, 0, 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="C:\Users\ANDRE\Downloads\1497618989-3_85123.ico"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+
+                        <!--MenuTitles-->
+                        <TextBlock Text="Гостиница" Foreground="White" FontSize="22"
+                       FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"
+                       Margin="5, 25, 0, 10"/>
+                        <!--MenuSeparator-->
+                        <Separator Margin="10, 25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
+
+                        <!--MenuButtons-->
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" Content="Клиенты"/>
+                            <Button Style="{StaticResource menuButton}"  Content="Бронирование"/>
+                            <Button x:Name="btn" Style="{StaticResource menuButton}" Content="Номера"/>
+                            <Button Style="{StaticResource menuButton}" Content="Заселения" />
+                            <Button Style="{StaticResource menuButton}" Content="Скидки" />
+                            <Button Style="{StaticResource menuButton}" Content="Услуги" />
+                            <Separator Margin="10" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
+                            <Button Style="{StaticResource menuButton}" Content="Регистрация клиента" />
+                            <Button Style="{StaticResource menuButton}" Content="Добавить бронь" />
+                            <Button Style="{StaticResource menuButton}" Content="Заселить" />
+
+                        </StackPanel>
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15, 0, 15, 20" Command="{Binding Vihod}" Content="Выход"/>
+                    </DockPanel>
+                </Border>
+
+            </Grid>
+        </Grid>
+        
+    </Border>
+</Window>
