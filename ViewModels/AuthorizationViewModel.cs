@@ -33,7 +33,7 @@ namespace Hotel.ViewModels
             if (u != null)
             {
                 MainWindow w = new MainWindow();
-                w.Show();
+                w.ShowDialog();
                 Application.Current.MainWindow.Close();
                 Application.Current.MainWindow = w;
             }

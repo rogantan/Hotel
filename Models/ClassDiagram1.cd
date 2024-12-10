@@ -15,7 +15,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Hotel.Models.CheckInService" Collapsed="true">
+  <Class Name="Hotel.Models.CheckInService">
     <Position X="9" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAIAAAAAAAAAQAAAAAAAAAAACAA=</HashCode>
@@ -23,41 +23,72 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Hotel.Models.Data.MyDatabase">
-    <Position X="1.75" Y="1" Width="1.5" />
+    <Position X="3.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>oAAAAAAAAQBAAAAAECAQAAACGAFAAAQAAgAAAAAAAAA=</HashCode>
       <FileName>Models\Data\MyDatabase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Hotel.Models.Room" Collapsed="true">
+  <Class Name="Hotel.Models.Room">
     <Position X="7" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgACAAAAAQAAAAAAAABIAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Room.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Hotel.ViewModels.AuthorizationViewModel" Collapsed="true">
-    <Position X="9.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAQAAAAAABAAAAAAAAAABACIAAQAAAAAAA=</HashCode>
-      <FileName>ViewModels\AuthorizationViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Hotel.Views.Authorization">
-    <Position X="4" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\Authorization.xaml.cs</FileName>
-    </TypeIdentifier>
+  <Class Name="Microsoft.EntityFrameworkCore.DbContext" Collapsed="true">
+    <Position X="3.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Hotel.Views.MainWindow">
-    <Position X="6.5" Y="5.25" Width="1.5" />
+  <Class Name="Hotel.Models.Client">
+    <Position X="15.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\MainWindow.xaml.cs</FileName>
+      <HashCode>AAQCAAAAAAAIAACAABBAAAQAAAAAAAAQAAAAIAAAABA=</HashCode>
+      <FileName>Models\Client.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Hotel.Models.Departure">
+    <Position X="13.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAEAAAAAAAAAAAAAgABAAAAAAAAAA=</HashCode>
+      <FileName>Models\Departure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotel.Models.Discount">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAgAAAAABAAAQAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\Discount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotel.Models.Employee">
+    <Position X="15.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAACAAABAAAAAAAAAAAASAAAQIAAAAAA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotel.Models.Reservation">
+    <Position X="10.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAgAABAAAAABBAAAAACAAAQgAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\Reservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotel.Models.ReservationClient">
+    <Position X="8.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAEAAAAAAAAAAAAAAABAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ReservationClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hotel.Models.Service">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACIAAAAQAAAAAAAABAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Service.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
