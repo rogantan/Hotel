@@ -15,9 +15,9 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
-            <Button Style="{StaticResource exitButton}" Margin="0, 0, 760, 110" Command="{Binding ExitCommand}"/>
-            <Button Style="{StaticResource minButton}" Margin="0, 0, 740, 110" Command="{Binding MinCommand}"/>
-            <Button Style="{StaticResource maxButton}" Margin="0, 0, 720, 110" Command="{Binding MaxCommand}"/>
+            <Button Style="{StaticResource exitButton}" Margin="30,9,0,119" Command="{Binding ExitCommand}" HorizontalAlignment="Left"/>
+            <Button Style="{StaticResource minButton}" Margin="50,9,0,119" Command="{Binding MinCommand}" HorizontalAlignment="Left"/>
+            <Button Style="{StaticResource maxButton}" Margin="70,9,0,119" Command="{Binding MaxCommand}" HorizontalAlignment="Left"/>
             <Border Grid.Row="0" Background="#ff8b8b" CornerRadius="50" Margin="20, 30, 20, 0">
                 <TextBlock Text="Hotel" Margin="0, 20, 0, 0" FontSize="40" HorizontalAlignment="Center" Foreground="White"/>
             </Border>
