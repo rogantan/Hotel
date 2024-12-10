@@ -8,9 +8,28 @@
         Title="AddCheckInWindow" Height="420" Width="620"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
-    <Border Background="White" CornerRadius="30">
+    <Border Background="#eaeaea" CornerRadius="30">
         <Grid>
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Border Background="#3ff2c6" CornerRadius="30">
+                <TextBlock Text="Заселение" FontSize="43" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontStyle="Italic"/>
+            </Border>
+            <TextBlock Grid.Row="1" Text="Введите id брони" FontSize="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Style="{StaticResource textBoxInput}" TextChanged="TextBox_TextChanged" Margin="290,0,10,0" />
+            <TextBlock Grid.Row="2" Text="Введите логин" FontSize="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Style="{StaticResource textBoxInput}" Margin="290,0,10,0"/>
+            <TextBlock Grid.Row="3" Text="Введите id скидки" FontSize="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Style="{StaticResource textBoxInput}" Margin="290,0,10,0"/>
+            <Button Grid.Row="4" Content="Сохранить заселение" Style="{StaticResource addButton}" HorizontalAlignment="Center" Margin="0,8,0,7" Width="200" />
+            <Button Grid.Row="5" Content="Добавить услугу" Style="{StaticResource addButton}" HorizontalAlignment="Left" Margin="35,8,0,8"/>
+            <Button Grid.Row="5" Content="Закрыть" Style="{StaticResource addButton}" HorizontalAlignment="Left" Margin="435,8,0,8"/>
         </Grid>
     </Border>
 </Window>

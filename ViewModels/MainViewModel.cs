@@ -34,6 +34,7 @@ namespace Hotel.ViewModels
             BackCommand = new RelayCommand(Back);
             AddClientCommand = new RelayCommand(AddClient);
             AddReservationCommand = new RelayCommand(AddReservation);
+            AddCheckInCommand = new RelayCommand(AddCheckIn);
         }
 
         void Exit(object o)
@@ -72,6 +73,12 @@ namespace Hotel.ViewModels
         {
             AddReservationWindow addReservationWindow = new AddReservationWindow();
             addReservationWindow.ShowDialog();
+        }
+
+        void AddCheckIn(object o)
+        {
+            AddCheckInWindow addCheckInWindow = new AddCheckInWindow();
+            addCheckInWindow.ShowDialog();
         }
     }
 }
