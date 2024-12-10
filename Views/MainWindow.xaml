@@ -17,14 +17,16 @@
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <!--MenuIcon-->
-                <Button  Margin="20, 28, 0, 35" Style="{StaticResource topButton}">
-                    <!--<Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />-->
-                </Button>
-
+                <!--<Button  Margin="20, 28, 0, 35" Style="{StaticResource topButton}">
+                    --><!--<Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />--><!--
+                </Button>-->
+                <Button Style="{StaticResource exitButton}" Margin="0, 0, 160, 35" Command="{Binding Vihod}"/>
+                <Button Style="{StaticResource minButton}" Margin="0, 0, 140, 35" Command="{Binding MinCommand}"/>
+                <Button Style="{StaticResource maxButton}" Margin="0, 0, 120, 35" Command="{Binding MaxCommand}"/>
                 <Border Grid.Row="1" Background="#59078f" CornerRadius="0, 50, 0, 30">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="60" Color="#d1d1d1" ShadowDepth="0" />
@@ -56,12 +58,12 @@
                             <Button Style="{StaticResource menuButton}" Content="Скидки" />
                             <Button Style="{StaticResource menuButton}" Content="Услуги" />
                             <Separator Margin="10" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
-                            <Button Style="{StaticResource menuButton}" Content="Регистрация клиента" />
-                            <Button Style="{StaticResource menuButton}" Content="Добавить бронь" />
-                            <Button Style="{StaticResource menuButton}" Content="Заселить" />
+                            <Button Style="{StaticResource menuButton}" Content="Регистрация клиента" Command="{Binding AddClientCommand}"/>
+                            <Button Style="{StaticResource menuButton}" Content="Добавить бронь" Command="{Binding AddReservationCommand}"/>
+                            <Button Style="{StaticResource menuButton}" Content="Заселить" Command="{Binding AddCheckInCommand}"/>
 
                         </StackPanel>
-                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15, 0, 15, 20" Command="{Binding Vihod}" Content="Выход"/>
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15, 0, 15, 20" Command="{Binding BackCommand}" Content="Назад"/>
                     </DockPanel>
                 </Border>
 
