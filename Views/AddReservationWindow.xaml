@@ -21,17 +21,17 @@
                 <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Border Grid.Row="0" Background="#c5f23f" CornerRadius="30">
-                <TextBlock Text="Добавление брони номера" Foreground="White" FontSize="45" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic"/>
+                <TextBlock Text="Бронирование номера" Foreground="White" FontSize="45" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic"/>
             </Border>
-            <TextBlock Text="Введите id номера" Grid.Row="1" FontSize="35" VerticalAlignment="Center"/>
+            <TextBlock Text="Введите id номера" Grid.Row="1" FontSize="30" VerticalAlignment="Center"/>
             <TextBox Style="{StaticResource textBoxInput}" Grid.Row="1" Margin="320,0,10,0"/>
-            <TextBlock Text="Введите ваш логин" Grid.Row="2" FontSize="35" VerticalAlignment="Center"/>
-            <TextBox Style="{StaticResource textBoxInput}" Grid.Row="2" Margin="320,1,10,0" VerticalAlignment="Top" />
-            <TextBlock Text="Выберите дату заселения" Grid.Row="3" FontSize="35" VerticalAlignment="Center" />
+            <TextBlock Text="Введите ваш логин" Grid.Row="2" FontSize="30" VerticalAlignment="Center"/>
+            <TextBox Style="{StaticResource textBoxInput}" Grid.Row="2" Margin="320,0,10,0" />
+            <TextBlock Text="Выберите дату заселения" Grid.Row="3" FontSize="30" VerticalAlignment="Center" />
             <DatePicker Grid.Row="3" Margin="520,36,120,36"/>
             <Button Grid.Row="4" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Сохранить бронь" Margin="0,5,0,0"/>
             <Button Grid.Row="7" Style="{StaticResource addButton}" Margin="10,6,0,10" Width="155" Content="Добавить клиентов" HorizontalAlignment="Left"/>
-            <TextBlock Grid.Row="5" Text="Выберите дату выезда" FontSize="35" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="5" Text="Выберите дату выезда" FontSize="30" VerticalAlignment="Center"/>
             <DatePicker Grid.Row="5" Margin="520,37,120,37"/>
             <Button Grid.Row="6" Style="{StaticResource addButton}" HorizontalAlignment="Center" Margin="0,8,0,8" Content="Сохранить дату выезда" Width="190"/>
             <Button Grid.Row="7" Style="{StaticResource addButton}" Margin="570,8,0,8" Content="Закрыть" HorizontalAlignment="Left" Command="{Binding ExitCommand}"/>

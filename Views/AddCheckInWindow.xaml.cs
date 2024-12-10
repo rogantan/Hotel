@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hotel.ViewModels;
 
 namespace Hotel.Views
 {
@@ -22,11 +23,7 @@ namespace Hotel.Views
         public AddCheckInWindow()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            DataContext = new AddCheckInViewModel();
         }
     }
 }
