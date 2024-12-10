@@ -11,19 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Hotel.ViewModels;
 
 namespace Hotel.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddReservationWindow.xaml
+    /// Логика взаимодействия для AddCheckInWindow.xaml
     /// </summary>
-    public partial class AddReservationWindow : Window
+    public partial class AddCheckInWindow : Window
     {
-        public AddReservationWindow()
+        public AddCheckInWindow()
         {
             InitializeComponent();
-            DataContext = new AddReservationViewModel();
         }
     }
 }

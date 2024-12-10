@@ -32,15 +32,24 @@ namespace Hotel.ViewModels
 
         void Save(object o)
         {
-            Client client = new Client();
-            client.Fio = FIO;
-            client.Passport = Passport;
-            client.Phone = Phone;
-            client.BirthDate = DateTime.SpecifyKind(BirthDate, DateTimeKind.Utc);
-            db.Clients.Add(client);
-            db.SaveChanges();
-            MessageBox.Show($"Данные успешно добавлены! {BirthDate}");
-            Application.Current.Windows.OfType<AddClientWindow>().FirstOrDefault()?.Close();
+            if (string.IsNullOrEmpty(FIO))
+                MessageBox.Show("Не введено ФИО", "Ошибка");
+            else if (string.IsNullOrEmpty(Passport))
+                MessageBox.Show("Не введены паспортные данные", "Ошибка");
+            else if (string.IsNullOrEmpty(Phone))
+                MessageBox.Show("Не введен номер телефона", "Ошибка");
+            else
+            {
+                Client client = new Client();
+                client.Fio = FIO;
+                client.Passport = Passport;
+                client.Phone = Phone;
+                client.BirthDate = DateTime.SpecifyKind(BirthDate, DateTimeKind.Utc);
+                db.Clients.Add(client);
+                db.SaveChanges();
+                MessageBox.Show($"Данные успешно добавлены!");
+                Application.Current.Windows.OfType<AddClientWindow>().FirstOrDefault()?.Close();
+            }
         }
     }
 }
