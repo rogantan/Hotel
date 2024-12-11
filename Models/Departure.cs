@@ -8,10 +8,22 @@ namespace Hotel.Models
 {
     public class Departure : NotifyProperty
     {
-        //public int Id { get; set; }
+        private int _id;
         private Reservation _reservation;
         private DateTime _departureDate;
 
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Reservation Reservation
         {
             get => _reservation;

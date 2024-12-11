@@ -14,13 +14,6 @@ namespace Hotel.Models.Data
         {
             optionsBuilder.UseNpgsql(@"Host=localhost;Port=5432;Database=hotel;Username=postgres;Password=yfhmzy03");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<CheckInService>()
-                .HasNoKey(); // Укажите, что это сущность без ключа
-            modelBuilder.Entity<ReservationClient>().HasNoKey();
-            modelBuilder.Entity<Departure>().HasNoKey();
-        }
         public DbSet<Client> Clients { get; set; } = null!;
         public DbSet<Reservation> Reservations { get; set; } = null!;
         public DbSet<CheckIn> CheckIns { get; set; } = null!;

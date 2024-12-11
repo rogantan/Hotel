@@ -13,7 +13,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="140" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
             <Button Style="{StaticResource exitButton}" Margin="30,9,0,119" Command="{Binding ExitCommand}" HorizontalAlignment="Left"/>
             <Button Style="{StaticResource minButton}" Margin="50,9,0,119" Command="{Binding MinCommand}" HorizontalAlignment="Left"/>
