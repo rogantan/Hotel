@@ -38,7 +38,7 @@ namespace Hotel.ViewModels
 
         void AddService(object o)
         {
-            AddServiceCheckInWindow w = new AddServiceCheckInWindow();
+            AddServiceCheckInWindow w = new AddServiceCheckInWindow(EmployeeLogin);
             w.ShowDialog();
         }
 
