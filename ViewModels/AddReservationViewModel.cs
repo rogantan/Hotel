@@ -13,6 +13,7 @@ namespace Hotel.ViewModels
 {
     class AddReservationViewModel
     {
+        MyDatabase db = new MyDatabase();
         public AddReservationViewModel()
         {
             ExitCommand = new RelayCommand(Exit);
@@ -37,7 +38,7 @@ namespace Hotel.ViewModels
 
         void AddClient(object o)
         {
-            AddClientReservationWindow w = new AddClientReservationWindow();
+            AddClientReservationWindow w = new AddClientReservationWindow(EmployeeLogin);
             w.ShowDialog();
         }
 
@@ -71,20 +72,18 @@ namespace Hotel.ViewModels
 
         void SaveDate(object o)
         {
-            using (MyDatabase db = MyDatabase.getInstance())
+            var employee = db.Employees.Where(e => e.Login == EmployeeLogin).FirstOrDefault();
+            var reservation = db.Reservations.Where(r => r.Employee == employee).OrderByDescending(e => e.Id).FirstOrDefault();
+            if (reservation != null)
             {
-                var reservation = db.Reservations.OrderByDescending(e => e.Id).FirstOrDefault();
-                if (reservation != null)
+                var departure = new Departure
                 {
-                    var departure = new Departure
-                    {
-                        Reservation = reservation,
-                        DepartureDate = DateTime.SpecifyKind(DepartureDate,DateTimeKind.Utc)
-                    };
-                    db.Departures.Add(departure);
-                    db.SaveChanges();
-                    MessageBox.Show("Дата выезда успешно добавлена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                    Reservation = reservation,
+                    DepartureDate = DateTime.SpecifyKind(DepartureDate, DateTimeKind.Utc)
+                };
+                db.Departures.Add(departure);
+                db.SaveChanges();
+                MessageBox.Show("Дата выезда успешно добавлена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

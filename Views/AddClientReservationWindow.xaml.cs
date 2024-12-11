@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hotel.ViewModels;
+
 
 namespace Hotel.Views
 {
@@ -19,9 +21,10 @@ namespace Hotel.Views
     /// </summary>
     public partial class AddClientReservationWindow : Window
     {
-        public AddClientReservationWindow()
+        public AddClientReservationWindow(string employeeLogin)
         {
             InitializeComponent();
+            DataContext = new AddClientReservationViewModel(employeeLogin);
         }
     }
 }
