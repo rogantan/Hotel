@@ -14,13 +14,13 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Клиенты" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
-            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}">
+            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding Clients}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id"/>
-                    <DataGridTextColumn Header="ФИО" />
-                    <DataGridTextColumn Header="Дата рождения" />
-                    <DataGridTextColumn Header="Паспорт" />
-                    <DataGridTextColumn Header="Номер телефона" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding Fio}"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate}"/>
+                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding Phone}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

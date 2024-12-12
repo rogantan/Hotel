@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Hotel.ViewModels;
 
 namespace Hotel.Views.Pages
 {
@@ -23,6 +24,7 @@ namespace Hotel.Views.Pages
         public PageClients()
         {
             InitializeComponent();
+            DataContext = new ClientsViewModel();
         }
     }
 }
