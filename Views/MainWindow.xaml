@@ -22,7 +22,9 @@
                 </Grid.RowDefinitions>
                 <!--MenuIcon-->
                 <!--<Button  Margin="20, 28, 0, 35" Style="{StaticResource topButton}">
-                    --><!--<Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />--><!--
+                    -->
+                <!--<Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />-->
+                <!--
                 </Button>-->
                 <Button Style="{StaticResource exitButton}" Margin="0, 0, 160, 35" Command="{Binding Vihod}"/>
                 <Button Style="{StaticResource minButton}" Margin="0, 0, 140, 35" Command="{Binding MinCommand}"/>
@@ -51,7 +53,7 @@
 
                         <!--MenuButtons-->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Content="Клиенты"/>
+                            <Button Style="{StaticResource menuButton}" Content="Клиенты" Command="{Binding ClientsCommand}"/>
                             <Button Style="{StaticResource menuButton}"  Content="Бронирование"/>
                             <Button x:Name="btn" Style="{StaticResource menuButton}" Content="Номера"/>
                             <Button Style="{StaticResource menuButton}" Content="Заселения" />
@@ -66,7 +68,11 @@
                         <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15, 0, 15, 20" Command="{Binding BackCommand}" Content="Назад"/>
                     </DockPanel>
                 </Border>
-
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border Background="#f0f0f0" CornerRadius="30" Margin="30,80,30,30">
+                    <Frame NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}"/>
+                </Border>
             </Grid>
         </Grid>
         

@@ -554,7 +554,7 @@
         </Style>-->
 
         <Style x:Key="exitButton" TargetType="Button" >
-            <Setter Property="Background" Value="#f04a4d"/>
+            <Setter Property="Background" Value="#f23c3e"/>
             <Setter Property="Foreground" Value="#ffffff" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Width" Value="12" />
@@ -576,16 +576,16 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#cdc8d0" />
-                    <Setter Property="Foreground" Value="#f04a4d" />
+                    <Setter Property="Foreground" Value="#f23c3e" />
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#f04a4d" />
+                    <Setter Property="Background" Value="#f23c3e" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="minButton" TargetType="Button" >
-            <Setter Property="Background" Value="#f0f04a"/>
+            <Setter Property="Background" Value="#f2d23c"/>
             <Setter Property="Foreground" Value="#ffffff" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Width" Value="12" />
@@ -607,16 +607,16 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#cdc8d0" />
-                    <Setter Property="Foreground" Value="#f0f04a" />
+                    <Setter Property="Foreground" Value="#f2d23c" />
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#f0f04a" />
+                    <Setter Property="Background" Value="#f2d23c" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style x:Key="maxButton" TargetType="Button" >
-            <Setter Property="Background" Value="#53f04a"/>
+            <Setter Property="Background" Value="#47f826"/>
             <Setter Property="Foreground" Value="#ffffff" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Width" Value="12" />
@@ -638,10 +638,10 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#cdc8d0" />
-                    <Setter Property="Foreground" Value="#53f04a" />
+                    <Setter Property="Foreground" Value="#47f826" />
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#53f04a" />
+                    <Setter Property="Background" Value="#47f826" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
