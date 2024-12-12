@@ -57,6 +57,8 @@ namespace Hotel.ViewModels
             CurrentPage = new PageClients();
             //Clients = Page
             ClientsCommand = new RelayCommand(SeeClients);
+            DiscountsCommand = new RelayCommand(o => CurrentPage = new PageDiscounts());
+            ServicesCommand = new RelayCommand(o => CurrentPage = new PageServices()); 
         }
 
         void Exit(object o)
@@ -107,7 +109,6 @@ namespace Hotel.ViewModels
         void SeeClients(object o)
         {
             CurrentPage = new PageClients();
-            MessageBox.Show("rjhr");
         }
     }
 }

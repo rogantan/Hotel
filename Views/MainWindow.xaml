@@ -57,8 +57,8 @@
                             <Button Style="{StaticResource menuButton}"  Content="Бронирование"/>
                             <Button x:Name="btn" Style="{StaticResource menuButton}" Content="Номера"/>
                             <Button Style="{StaticResource menuButton}" Content="Заселения" />
-                            <Button Style="{StaticResource menuButton}" Content="Скидки" />
-                            <Button Style="{StaticResource menuButton}" Content="Услуги" />
+                            <Button Style="{StaticResource menuButton}" Content="Скидки" Command="{Binding DiscountsCommand}"/>
+                            <Button Style="{StaticResource menuButton}" Content="Услуги" Command="{Binding ServicesCommand}"/>
                             <Separator Margin="10" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>
                             <Button Style="{StaticResource menuButton}" Content="Регистрация клиента" Command="{Binding AddClientCommand}"/>
                             <Button Style="{StaticResource menuButton}" Content="Добавить бронь" Command="{Binding AddReservationCommand}"/>

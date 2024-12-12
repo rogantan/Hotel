@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hotel.ViewModels;
 
 namespace Hotel.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageClients.xaml
+    /// Логика взаимодействия для PageDiscounts.xaml
     /// </summary>
-    public partial class PageClients : Page
+    public partial class PageDiscounts : Page
     {
-        public PageClients()
+        public PageDiscounts()
         {
             InitializeComponent();
             DataContext = new PagesViewModel();
