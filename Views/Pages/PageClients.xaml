@@ -14,7 +14,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Клиенты" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
-            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding Clients}">
+            <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Clients}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="ФИО" Binding="{Binding Fio}"/>

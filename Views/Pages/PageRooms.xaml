@@ -20,7 +20,7 @@
             <DatePicker Margin="15,35,650,10" Grid.Row="1" SelectedDate="{Binding FirstDate}" HorizontalAlignment="Left"/>
             <DatePicker Grid.Row="1" Margin="205,35,450,10" SelectedDate="{Binding SecondDate}"/>
             <Button Content="Поиск" Grid.Row="1" Style="{StaticResource addButton}" Margin="0,25,140,10" Command="{Binding SearchCommand}"/>
-            <DataGrid Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding Rooms}">
+            <DataGrid Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" ItemsSource="{Binding Rooms}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Комфортность" Binding="{Binding Comfort}"/>

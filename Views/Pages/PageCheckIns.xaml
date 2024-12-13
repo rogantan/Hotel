@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Заселения" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
-            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding CheckInsServices}">
+            <DataGrid CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding CheckInsServices}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding CheckIn.Id}"/>
                     <DataGridTextColumn Header="Название услуги" Binding="{Binding Service.Name}"/>

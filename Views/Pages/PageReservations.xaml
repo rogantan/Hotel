@@ -15,7 +15,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Бронирование" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
-            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding ReservationsClients}">
+            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" ItemsSource="{Binding ReservationsClients}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Reservation.Id}"/>
                     <DataGridTextColumn Header="ФИО" Binding="{Binding Client.Fio}"/>
