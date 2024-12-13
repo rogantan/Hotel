@@ -3,6 +3,7 @@ using Hotel.Models.Data;
 using Hotel.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,15 @@ namespace Hotel.ViewModels
 {
     class AddServiceCheckInViewModel
     {
+        MyDatabase db = MyDatabase.getInstance();
         public AddServiceCheckInViewModel(string employeeLogin)
         {
             this.EmployeeLogin = employeeLogin;
             ExitCommand = new RelayCommand(Exit);
             SaveServiceCommand = new RelayCommand(SaveService);
         }
+
+        public ObservableCollection<Service> Services { get => db.Services.Local.ToObservableCollection(); }
 
         public RelayCommand ExitCommand {  get; set; }
         public RelayCommand SaveServiceCommand {  get; set; }

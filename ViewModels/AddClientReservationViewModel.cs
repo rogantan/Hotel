@@ -3,6 +3,7 @@ using Hotel.Models.Data;
 using Hotel.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Hotel.ViewModels
 {
     class AddClientReservationViewModel
     {
-        
+        MyDatabase db = MyDatabase.getInstance();
         public AddClientReservationViewModel(string employeeLogin)
         {
             this.EmployeeLogin = employeeLogin;
@@ -20,6 +21,7 @@ namespace Hotel.ViewModels
             SaveClientCommand = new RelayCommand(SaveClient);
         }
 
+        public ObservableCollection<Client> Clients { get => db.Clients.Local.ToObservableCollection(); }
         public RelayCommand ExitCommand { get; set; }
         public RelayCommand SaveClientCommand {  get; set; }
 
