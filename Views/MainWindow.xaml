@@ -54,9 +54,9 @@
                         <!--MenuButtons-->
                         <StackPanel DockPanel.Dock="Top">
                             <Button Style="{StaticResource menuButton}" Content="Клиенты" Command="{Binding ClientsCommand}"/>
-                            <Button Style="{StaticResource menuButton}"  Content="Бронирование"/>
-                            <Button x:Name="btn" Style="{StaticResource menuButton}" Content="Номера"/>
-                            <Button Style="{StaticResource menuButton}" Content="Заселения" />
+                            <Button Style="{StaticResource menuButton}"  Content="Бронирование" Command="{Binding ReservationsCommand}"/>
+                            <Button x:Name="btn" Style="{StaticResource menuButton}" Content="Номера" Command="{Binding RoomsCommand}"/>
+                            <Button Style="{StaticResource menuButton}" Content="Заселения" Command="{Binding CheckInsCommand}"/>
                             <Button Style="{StaticResource menuButton}" Content="Скидки" Command="{Binding DiscountsCommand}"/>
                             <Button Style="{StaticResource menuButton}" Content="Услуги" Command="{Binding ServicesCommand}"/>
                             <Separator Margin="10" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"/>

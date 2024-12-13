@@ -55,10 +55,12 @@ namespace Hotel.ViewModels
             AddCheckInCommand = new RelayCommand(AddCheckIn);
 
             CurrentPage = new PageClients();
-            //Clients = Page
-            ClientsCommand = new RelayCommand(SeeClients);
+            ClientsCommand = new RelayCommand(o => CurrentPage = new PageClients());
             DiscountsCommand = new RelayCommand(o => CurrentPage = new PageDiscounts());
             ServicesCommand = new RelayCommand(o => CurrentPage = new PageServices()); 
+            ReservationsCommand = new RelayCommand(o => CurrentPage = new PageReservations());
+            CheckInsCommand = new RelayCommand(o => CurrentPage = new PageCheckIns());
+            RoomsCommand = new RelayCommand(o => CurrentPage = new PageRooms());
         }
 
         void Exit(object o)
@@ -103,12 +105,6 @@ namespace Hotel.ViewModels
         {
             AddCheckInWindow addCheckInWindow = new AddCheckInWindow();
             addCheckInWindow.ShowDialog();
-        }
-
-
-        void SeeClients(object o)
-        {
-            CurrentPage = new PageClients();
         }
     }
 }

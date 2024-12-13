@@ -1,0 +1,32 @@
+﻿<Page x:Class="Hotel.Views.Pages.PageRooms"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hotel.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageRooms">
+
+    <Border Background="#f0f0f0" CornerRadius="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Номера" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
+            <TextBlock Text="Введите даты для поиска свободных номеров" Grid.Row="1" FontSize="15"/>
+            <DatePicker Margin="15,35,650,10" Grid.Row="1" SelectedDate="{Binding FirstDate}" HorizontalAlignment="Left"/>
+            <DatePicker Grid.Row="1" Margin="205,35,450,10" SelectedDate="{Binding SecondDate}"/>
+            <Button Content="Поиск" Grid.Row="1" Style="{StaticResource addButton}" Margin="0,25,140,10" Command="{Binding SearchCommand}"/>
+            <DataGrid Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding Rooms}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Комфортность" Binding="{Binding Comfort}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</Page>

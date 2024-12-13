@@ -1,0 +1,30 @@
+﻿<Page x:Class="Hotel.Views.Pages.PageReservations"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hotel.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageReservations">
+
+    <Border Background="#f0f0f0" CornerRadius="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Бронирование" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
+            <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding ReservationsClients}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Reservation.Id}"/>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding Client.Fio}"/>
+                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Client.Passport}"/>
+                    <DataGridTextColumn Header="Номер" Binding="{Binding Reservation.Room.Id}"/>
+                    <DataGridTextColumn Header="Цена номера" Binding="{Binding Reservation.Room.Price}"/>
+                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding Reservation.Employee.Login}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</Page>
