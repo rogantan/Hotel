@@ -17,12 +17,13 @@
             <TextBlock Text="Бронирование" Grid.Row="0" FontSize="35" Margin="15,0" FontStyle="Italic"/>
             <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" ItemsSource="{Binding ReservationsClients}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Reservation.Id}"/>
-                    <DataGridTextColumn Header="ФИО" Binding="{Binding Client.Fio}"/>
-                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Client.Passport}"/>
-                    <DataGridTextColumn Header="Номер" Binding="{Binding Reservation.Room.Id}"/>
-                    <DataGridTextColumn Header="Цена номера" Binding="{Binding Reservation.Room.Price}"/>
-                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding Reservation.Employee.Login}"/>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding Fio}"/>
+                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                    <DataGridTextColumn Header="Номер" Binding="{Binding RoomId}"/>
+                    <DataGridTextColumn Header="Цена номера" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Заселение" Binding="{Binding CheckInDate}"/>
+                    <DataGridTextColumn Header="Выезд" Binding="{Binding DepartureDate}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
