@@ -34,7 +34,7 @@
             <TextBlock Grid.Row="5" Text="Выберите дату выезда" FontSize="30" VerticalAlignment="Center"/>
             <DatePicker Grid.Row="5" Margin="520,37,120,37" SelectedDate="{Binding DepartureDate}"/>
             <Button Grid.Row="6" Style="{StaticResource addButton}" HorizontalAlignment="Center" Margin="0,8,0,8" Content="Сохранить дату выезда" Width="190" Command="{Binding SaveDateCommand}"/>
-            <Button Grid.Row="7" Style="{StaticResource addButton}" Margin="570,8,0,8" Content="Закрыть" HorizontalAlignment="Left" Command="{Binding ExitCommand}"/>
+            <Button Grid.Row="7" Style="{StaticResource closeButton}" Margin="570,8,0,8" Content="Закрыть" HorizontalAlignment="Left" Command="{Binding ExitCommand}"/>
         </Grid>
     </Border>
 </Window>

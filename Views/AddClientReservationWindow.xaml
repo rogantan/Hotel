@@ -21,7 +21,7 @@
             </Border>
             <TextBlock Text="Введите id клиента" Grid.Row="1" FontSize="30" VerticalAlignment="Center"/>
             <TextBox Style="{StaticResource textBoxInput}" Grid.Row="1" Margin="290,0,10,0" Text="{Binding ClientId}"/>
-            <Button Grid.Row="2" Style="{StaticResource addButton}" Margin="0,32,35,12" Content="Отмена" Command="{Binding ExitCommand}"/>
+            <Button Grid.Row="2" Style="{StaticResource closeButton}" Margin="0,32,35,12" Content="Отмена" Command="{Binding ExitCommand}"/>
             <Button Grid.Row="2" Style="{StaticResource addButton}" Margin="0,32,515,12" Content="Сохранить" Command="{Binding SaveClientCommand}"/>
             <DataGrid Grid.Row="3" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" ItemsSource="{Binding Clients}">
                 <DataGrid.Columns>

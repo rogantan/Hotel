@@ -31,7 +31,7 @@
             <TextBlock Grid.Row="4" Text="Введите номер телефона" FontSize="15" VerticalAlignment="Center"/>
             <TextBox Grid.Row="4" Style="{StaticResource textBoxInput}" Height="55" Margin="210,0,10,0" Text="{Binding Phone}"/>
             <Button Grid.Row="5" Style="{StaticResource addButton}" Width="90" HorizontalAlignment="Left" Margin="45,8,0,8" Content="Сохранить" Command="{Binding SaveCommand}"/>
-            <Button Grid.Row="5" Style="{StaticResource addButton}" Width="90" HorizontalAlignment="Left" Margin="455,18,0,18" Content="Отмена" Command="{Binding CancelCommand}"/>
+            <Button Grid.Row="5" Style="{StaticResource closeButton}" Width="90" HorizontalAlignment="Left" Margin="455,18,0,18" Content="Отмена" Command="{Binding CancelCommand}"/>
         </Grid>
     </Border>
 </Window>
