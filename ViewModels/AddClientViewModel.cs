@@ -44,7 +44,8 @@ namespace Hotel.ViewModels
                 client.Fio = FIO;
                 client.Passport = Passport;
                 client.Phone = Phone;
-                client.BirthDate = DateTime.SpecifyKind(BirthDate, DateTimeKind.Utc);
+                client.BirthDate = DateOnly.FromDateTime(BirthDate);
+                MessageBox.Show($"{client.BirthDate}");
                 db.Clients.Add(client);
                 db.SaveChanges();
                 MessageBox.Show($"Данные успешно добавлены!");

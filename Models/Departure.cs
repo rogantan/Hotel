@@ -10,7 +10,7 @@ namespace Hotel.Models
     {
         private int _id;
         private Reservation _reservation;
-        private DateTime _departureDate;
+        private DateOnly _departureDate;
 
         public int Id
         {
@@ -36,7 +36,7 @@ namespace Hotel.Models
                 }
             }
         }
-        public DateTime DepartureDate
+        public DateOnly DepartureDate
         {
             get => _departureDate;
             set

@@ -10,7 +10,7 @@ namespace Hotel.Models
     {
         private int _id;
         private string _fio;
-        private DateTime _birthDate;
+        private DateOnly _birthDate;
         private string _passport;
         private string _phone;
 
@@ -38,7 +38,7 @@ namespace Hotel.Models
                 }
             }
         }
-        public DateTime BirthDate
+        public DateOnly BirthDate
         {
             get => _birthDate;
             set

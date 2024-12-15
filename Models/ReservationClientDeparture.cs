@@ -13,7 +13,7 @@ namespace Hotel.Models
         public string Passport { get; set; }
         public int RoomId { get; set; }
         public int Price { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime DepartureDate { get; set; }
+        public DateOnly CheckInDate { get; set; }
+        public DateOnly DepartureDate { get; set; }
     }
 }

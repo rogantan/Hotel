@@ -11,8 +11,8 @@ namespace Hotel.Models
         private int _id;
         private Room _room;
         private Employee _employee;
-        private DateTime _reservationDate;
-        private DateTime _checkinDate;
+        private DateOnly _reservationDate;
+        private DateOnly _checkinDate;
 
         public int Id
         {
@@ -50,7 +50,7 @@ namespace Hotel.Models
                 }
             }
         }
-        public DateTime ReservationDate
+        public DateOnly ReservationDate
         {
             get => _reservationDate;
             set
@@ -62,7 +62,7 @@ namespace Hotel.Models
                 }
             }
         }
-        public DateTime CheckinDate
+        public DateOnly CheckinDate
         {
             get => _checkinDate;
             set

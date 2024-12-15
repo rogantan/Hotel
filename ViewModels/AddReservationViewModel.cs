@@ -4,10 +4,13 @@ using Hotel.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Hotel.ViewModels
 {
@@ -33,7 +36,10 @@ namespace Hotel.ViewModels
 
         void Exit(object o)
         {
-            Application.Current.Windows.OfType<AddReservationWindow>().FirstOrDefault()?.Close();
+            
+            MessageBoxResult result = MessageBox.Show("Вы добавили клиентов к бронированию?", "Предупреждение", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+                Application.Current.Windows.OfType<AddReservationWindow>().FirstOrDefault()?.Close();
         }
 
         void AddClient(object o)
@@ -48,26 +54,38 @@ namespace Hotel.ViewModels
             {
                 MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            using (MyDatabase db = MyDatabase.getInstance())
+            var room = db.Rooms.Find(int.Parse(RoomId));
+            var employee = db.Employees.FirstOrDefault(e => e.Login == EmployeeLogin);
+            if (room == null || employee == null)
             {
-                var room = db.Rooms.Find(int.Parse(RoomId));
-                var employee = db.Employees.FirstOrDefault(e => e.Login == EmployeeLogin);
-                if (room == null || employee == null)
-                {
-                    MessageBox.Show("Одна или несколько записей не найдены.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                var reservation = new Reservation
-                {
-                    Room = room,
-                    Employee = employee,
-                    ReservationDate = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
-                    CheckinDate = DateTime.SpecifyKind(CheckInDate, DateTimeKind.Utc)
-                };
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
-                MessageBox.Show("Бронь успешно добавлена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Одна или несколько записей не найдены.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            var check = (from reservations in db.Reservations
+                         join departures in db.Departures
+                         on reservations.Id equals departures.Reservation.Id
+                         where DateOnly.FromDateTime(CheckInDate) >= reservations.CheckinDate && DateOnly.FromDateTime(CheckInDate) <= departures.DepartureDate && reservations.Room == room
+                         select new
+                         {
+                             checkindate = reservations.CheckinDate,
+                             departuredate = departures.DepartureDate,
+                         }
+                         ).Any();
+            if (check)
+            {
+                MessageBox.Show("Номер в эту дату занят, выберите другую дату", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            var reservation = new Reservation
+            {
+                Room = room,
+                Employee = employee,
+                ReservationDate = DateOnly.FromDateTime(DateTime.Now),
+                CheckinDate = DateOnly.FromDateTime(CheckInDate)
+            };
+            db.Reservations.Add(reservation);
+            db.SaveChanges();
+            MessageBox.Show("Бронь успешно добавлена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         void SaveDate(object o)
@@ -76,10 +94,21 @@ namespace Hotel.ViewModels
             var reservation = db.Reservations.Where(r => r.Employee == employee).OrderByDescending(e => e.Id).FirstOrDefault();
             if (reservation != null)
             {
+                var check = (from reservations in db.Reservations
+                            join departures in db.Departures
+                            on reservations.Id equals departures.Reservation.Id
+                            where DateOnly.FromDateTime(DepartureDate) >= reservations.CheckinDate && DateOnly.FromDateTime(DepartureDate) <= departures.DepartureDate && reservations.Room == reservation.Room
+                            select reservations).Any();
+                
+                if (check)
+                {
+                    MessageBox.Show("Номер в эту дату занят, выберите другую дату", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 var departure = new Departure
                 {
                     Reservation = reservation,
-                    DepartureDate = DateTime.SpecifyKind(DepartureDate, DateTimeKind.Utc)
+                    DepartureDate = DateOnly.FromDateTime(DepartureDate)
                 };
                 db.Departures.Add(departure);
                 db.SaveChanges();
