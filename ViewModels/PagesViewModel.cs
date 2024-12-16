@@ -19,7 +19,6 @@ namespace Hotel.ViewModels
         public ObservableCollection<Service> Services { get => db.Services.Local.ToObservableCollection(); }
         public ObservableCollection<ReservationClientDeparture> ReservationsClients { get; set; }
         public ObservableCollection<CheckInService> CheckInsServices { get => db.CheckInsServices.Local.ToObservableCollection(); }
-        //public List<Room> Rooms { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public DateTime FirstDate { get; set; }
         public DateTime SecondDate { get; set; }
@@ -68,11 +67,21 @@ namespace Hotel.ViewModels
 
         void Search(object o)
         {
-            //var CheckInDate = db.Reservations.Where()
-            DateOnly date1 = DateOnly.FromDateTime(FirstDate);
-            DateOnly date2 = DateOnly.FromDateTime(SecondDate);
-            NpgsqlParameter param = new NpgsqlParameter("@name", "%Tom%");
-            var rooms = db.Rooms.FromSqlRaw("""SELECT * FROM "Rooms" WHERE "Id" = 2""").ToList();
+            NpgsqlParameter param = new NpgsqlParameter("@date1", DateOnly.FromDateTime(FirstDate));
+            NpgsqlParameter param1 = new NpgsqlParameter("@date2", DateOnly.FromDateTime(SecondDate));
+            var rooms = db.Rooms.FromSqlRaw("""
+                SELECT * 
+                FROM "Rooms" 
+                WHERE "Id" NOT IN (
+                    SELECT "RoomId" 
+                    FROM "Reservations"
+                    JOIN "Departures" ON "Reservations"."Id" = "Departures"."ReservationId"
+                    WHERE (
+                        ("Reservations"."CheckinDate" <= @date2 AND "Departures"."DepartureDate" >= @date1)
+                    )
+                );
+                
+                """, param, param1).ToList();
             Console.WriteLine(rooms);
             Rooms = rooms;
         }
