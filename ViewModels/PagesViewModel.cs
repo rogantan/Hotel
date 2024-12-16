@@ -1,6 +1,7 @@
 ﻿using Hotel.Models;
 using Hotel.Models.Data;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.ViewModels
 {
-    class PagesViewModel
+    class PagesViewModel : NotifyProperty
     {
         MyDatabase db = MyDatabase.getInstance();
         public ObservableCollection<Client> Clients { get => db.Clients.Local.ToObservableCollection(); }
@@ -18,11 +19,24 @@ namespace Hotel.ViewModels
         public ObservableCollection<Service> Services { get => db.Services.Local.ToObservableCollection(); }
         public ObservableCollection<ReservationClientDeparture> ReservationsClients { get; set; }
         public ObservableCollection<CheckInService> CheckInsServices { get => db.CheckInsServices.Local.ToObservableCollection(); }
-        public ObservableCollection<Room> Rooms { get; set; }
+        //public List<Room> Rooms { get; set; }
         public RelayCommand SearchCommand { get; set; }
+        public DateTime FirstDate { get; set; }
+        public DateTime SecondDate { get; set; }
+
+        private List<Room> _rooms;
+        public List<Room> Rooms
+        {
+            get => _rooms;
+            set
+            {
+                _rooms = value;
+                OnPropertyChanged(nameof(Rooms)); // Уведомление об изменении свойства
+            }
+        }
         public PagesViewModel()
         {
-            Rooms = db.Rooms.Local.ToObservableCollection();
+            Rooms = db.Rooms.Local.ToList();
             ReservationsClients = Join();
             SearchCommand = new RelayCommand(Search);
         }
@@ -55,6 +69,12 @@ namespace Hotel.ViewModels
         void Search(object o)
         {
             //var CheckInDate = db.Reservations.Where()
+            DateOnly date1 = DateOnly.FromDateTime(FirstDate);
+            DateOnly date2 = DateOnly.FromDateTime(SecondDate);
+            NpgsqlParameter param = new NpgsqlParameter("@name", "%Tom%");
+            var rooms = db.Rooms.FromSqlRaw("""SELECT * FROM "Rooms" WHERE "Id" = 2""").ToList();
+            Console.WriteLine(rooms);
+            Rooms = rooms;
         }
     }
 }
