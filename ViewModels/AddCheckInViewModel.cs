@@ -30,18 +30,13 @@ namespace Hotel.ViewModels
         public string DiscountId { get; set; }
 
 
-
         void Exit(object o)
         {
             if (!string.IsNullOrWhiteSpace(ReservationId) && !string.IsNullOrWhiteSpace(EmployeeLogin) && !string.IsNullOrEmpty(DiscountId))
             {
-                //using (MyDatabase db = new MyDatabase())
-                //{
                 MyDatabase db = MyDatabase.getInstance();
                 var reservation = db.Reservations.Find(int.Parse(ReservationId));
-                //MessageBox.Show($"{reservation.Room}");
                 var checkin = db.CheckIns.FirstOrDefault(c => c.Reservation.Id == reservation.Id);
-                //MessageBox.Show($"{checkin.Id}");
                 if (checkin != null && reservation != null)
                 {
                     var ServiceSumma = db.CheckInsServices.Where(cis => cis.CheckIn == checkin).Include(cis => cis.Service).Sum(cis => cis.Service.Price);
@@ -54,13 +49,11 @@ namespace Hotel.ViewModels
                     var checkinDate = reservation.CheckinDate;
                     var raz = departureDate.DayNumber - checkinDate.DayNumber;
                     var Itog = (RoomPrice - (DiscountSize * RoomPrice / 100)) * raz + ServiceSumma;
-                    MessageBox.Show($"Сумма услуг - {ServiceSumma}\nСкидка - {DiscountSize}\n" +
+                    MessageBox.Show($"Сумма услуг - {ServiceSumma}\nСкидка - {DiscountSize}%\n" +
                         $"Цена номера - {RoomPrice}\nДата заселения {checkinDate}\nДата в {departureDate}\n" +
                         $"Итоговая сумма - {Itog}", "Чек");
 
-                    }
-                //}
-                  
+                }
             }
             Application.Current.Windows.OfType<AddCheckInWindow>().FirstOrDefault()?.Close();
         }
@@ -98,11 +91,6 @@ namespace Hotel.ViewModels
                 db.CheckIns.Add(checkIn);
                 db.SaveChanges();
                 MessageBox.Show("Заселение успешно добавлено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                // message box для общей суммы
-                //var totalPrice = db.Services.Where(s => db.CheckInsServices.Any(c => c.CheckInId == 2)).Sum(s => s.Price);
-
-
             }
 
         }
