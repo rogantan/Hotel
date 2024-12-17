@@ -18,7 +18,7 @@ namespace Hotel.Models.Data
         public DbSet<Reservation> Reservations { get; set; } = null!;
         public DbSet<CheckIn> CheckIns { get; set; } = null!;
         public DbSet<Departure> Departures { get; set; } = null!;
-        public DbSet<Room> Rooms { get; set; } = null !;
+        public DbSet<Room> Rooms { get; set; } = null!;
         public DbSet<Discount> Discounts { get; set; } = null!;
         public DbSet<CheckInService> CheckInsServices { get; set; } = null!;
         public DbSet<Service> Services { get; set; } = null!;
