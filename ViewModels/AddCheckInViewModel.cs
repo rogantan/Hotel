@@ -35,30 +35,31 @@ namespace Hotel.ViewModels
         {
             if (!string.IsNullOrWhiteSpace(ReservationId) && !string.IsNullOrWhiteSpace(EmployeeLogin) && !string.IsNullOrEmpty(DiscountId))
             {
-                using (MyDatabase db = MyDatabase.getInstance())
+                //using (MyDatabase db = new MyDatabase())
+                //{
+                MyDatabase db = MyDatabase.getInstance();
+                var reservation = db.Reservations.Find(int.Parse(ReservationId));
+                //MessageBox.Show($"{reservation.Room}");
+                var checkin = db.CheckIns.FirstOrDefault(c => c.Reservation.Id == reservation.Id);
+                //MessageBox.Show($"{checkin.Id}");
+                if (checkin != null && reservation != null)
                 {
-                    var reservation = db.Reservations.Find(int.Parse(ReservationId));
-                    //MessageBox.Show($"{reservation.Room}");
-                    var checkin = db.CheckIns.FirstOrDefault(c => c.Reservation.Id == reservation.Id);
-                    //MessageBox.Show($"{checkin.Id}");
-                    if (checkin != null && reservation != null)
-                    {
-                        var ServiceSumma = db.CheckInsServices.Where(cis => cis.CheckIn == checkin).Include(cis => cis.Service).Sum(cis => cis.Service.Price);
-                        var departureDate = (from Reserv in db.Reservations
-                                             join Departure in db.Departures on Reserv.Id equals Departure.Reservation.Id
-                                             where Reserv.Id == reservation.Id
-                                             select Departure.DepartureDate).SingleOrDefault();
-                        var DiscountSize = checkin.Discount.Size;
-                        var RoomPrice = reservation.Room.Price;
-                        var checkinDate = reservation.CheckinDate;
-                        var raz = departureDate.DayNumber - checkinDate.DayNumber;
-                        var Itog = (RoomPrice - (DiscountSize * RoomPrice / 100)) * raz + ServiceSumma;
-                        MessageBox.Show($"Сумма услуг - {ServiceSumma}\nСкидка - {DiscountSize}\n" +
-                            $"Цена номера - {RoomPrice}\nДата заселения {checkinDate}\nДата в {departureDate}\n" +
-                            $"Итоговая сумма - {Itog}", "Чек");
+                    var ServiceSumma = db.CheckInsServices.Where(cis => cis.CheckIn == checkin).Include(cis => cis.Service).Sum(cis => cis.Service.Price);
+                    var departureDate = (from Reserv in db.Reservations
+                                            join Departure in db.Departures on Reserv.Id equals Departure.Reservation.Id
+                                            where Reserv.Id == reservation.Id
+                                            select Departure.DepartureDate).SingleOrDefault();
+                    var DiscountSize = checkin.Discount.Size;
+                    var RoomPrice = reservation.Room.Price;
+                    var checkinDate = reservation.CheckinDate;
+                    var raz = departureDate.DayNumber - checkinDate.DayNumber;
+                    var Itog = (RoomPrice - (DiscountSize * RoomPrice / 100)) * raz + ServiceSumma;
+                    MessageBox.Show($"Сумма услуг - {ServiceSumma}\nСкидка - {DiscountSize}\n" +
+                        $"Цена номера - {RoomPrice}\nДата заселения {checkinDate}\nДата в {departureDate}\n" +
+                        $"Итоговая сумма - {Itog}", "Чек");
 
                     }
-                }
+                //}
                   
             }
             Application.Current.Windows.OfType<AddCheckInWindow>().FirstOrDefault()?.Close();
